@@ -1,0 +1,2 @@
+include confetti/*.h
+include src/*.h

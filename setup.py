@@ -1,0 +1,21 @@
+from setuptools import setup, Extension
+setup(
+    name="cconfetti",
+    version="0.1.0",
+    ext_modules=[Extension("cconfetti",
+        sources=[
+            "src/py_parse.c",
+            "src/py_confetti.c",
+            "src/py_directive.c",
+            "src/py_argument.c",
+            "src/py_exception.c",
+            "confetti/confetti.c",
+            "confetti/confetti_unidata.c",
+        ],
+        include_dirs=[
+            "src",
+            "confetti",
+        ])
+    ],
+    include_package_data=True
+)

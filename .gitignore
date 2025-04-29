@@ -1,0 +1,32 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.dylib
+
+# Executables
+*.exe
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.msi
+
+# Mac OS X
+.DS_Store
+
+# CMake out-of-source build files
+build/*
+
+# Python files
+dist/*
+cconfetti.egg-info/

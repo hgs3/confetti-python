@@ -1,0 +1,32 @@
+name: Build Status
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  linux:
+    name: "Linux"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+        pip install pytest
+        pip install mypy
+    - name: Generate Unicode Data
+      run: |
+        cd confetti
+        python unicode.py --download
+        python unicode.py
+    - name: Build Module
+      run: |
+        python setup.py build_ext --inplace
+    - name: Test
+      run: |
+        mypy --strict tests
+        pytest
